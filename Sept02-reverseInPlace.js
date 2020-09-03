@@ -31,3 +31,5 @@ function reverseArr(arrofChars) {
 }
 arr = [1, 2, 3, 4, 5];
 reverseArr(arr);
+
+// Complexity O(n) runtime and O(1) space
