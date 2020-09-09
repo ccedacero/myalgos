@@ -33,3 +33,47 @@ arr = [1, 2, 3, 4, 5];
 reverseArr(arr);
 
 // Complexity O(n) runtime and O(1) space
+// Write a function reverseWords() that takes a message as an array of characters and reverses the order of the words in place. ↴
+
+// Why an array of characters instead of a string?
+
+// The goal of this question is to practice manipulating strings in place. Since we're modifying the message, we need a mutable ↴ type like an array, instead of JavaScript's immutable strings.
+
+// For example:
+
+const message = [
+  "c",
+  "a",
+  "k",
+  "e",
+  " ",
+  "p",
+  "o",
+  "u",
+  "n",
+  "d",
+  " ",
+  "s",
+  "t",
+  "e",
+  "a",
+  "l",
+];
+function reverseWords(arr) {
+  // failsafe to check length
+  if (arr.length < 2) return arr;
+  // declare 3 vars to store leftIndex, rightIndex, tempIndex
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+  let temp = 0;
+  while (leftIndex < rightIndex) {
+    temp = arr[rightIndex];
+    arr[rightIndex] = arr[leftIndex];
+    arr[leftIndex] = temp;
+    leftIndex++;
+    rightIndex--;
+  }
+  return arr;
+}
+
+console.log(reverseWords(message));
