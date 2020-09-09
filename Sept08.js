@@ -1,10 +1,10 @@
-// function reverse(str) {
-//   if (str.length <= 1) {
-//     return str;
-//   }
-//   console.log(str);
-//   return reverse(str.slice(1)) + str[0];
-// }
+function reverse(str) {
+  if (str.length <= 1) {
+    return str;
+  }
+  return reverse(str.slice(1)) + str[0];
+}
+
 // console.log(reverse("hello"));
 
 function isPalindrome(str) {
@@ -43,15 +43,40 @@ function isPalindrome(str) {
 // someRecursive([4,6,8], isOdd) // false
 // someRecursive([4,6,8], val => val > 10); // false
 
-function flatten(arr) {
-  let flattenArr = [];
-  arr.forEach((val) => {
-    if (Array.isArray(val)) {
-      flattenArr = flattenArr.concat(flatten(val));
-    } else {
-      flattenArr.push(val);
-    }
-  });
-  return flattenArr;
+// function flatten(arr) {
+//   let flattenArr = [];
+//   arr.forEach((val) => {
+//     if (Array.isArray(val)) {
+//       flattenArr = flattenArr.concat(flatten(val));
+//     } else {
+//       flattenArr.push(val);
+//     }
+//   });
+//   return flattenArr;
+// }
+// console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])); // [1,2,3
+
+// function capitalizeFirst (array) {
+//   if (array.length === 1) {
+//     return [array[0][0].toUpperCase() + array[0].substr(1)];
+//   }
+//   const res = capitalizeFirst(array.slice(0, -1));
+//   const string = array.slice(array.length - 1)[0][0].toUpperCase() + array.slice(array.length-1)[0].substr(1);
+//   res.push(string);
+//   return res;
+// }
+
+function capitalizeFirst(arr) {
+  const capitalizedArr = [];
+  if (arr.length == 0) {
+    return capitalizedArr;
+  } else {
+    let word = arr[0].slice(1);
+    word = arr[0][0].toUpperCase() + word;
+    capitalizedArr.push(word);
+    return capitalizeFirst(arr.slice(1));
+  }
+  // return capitalizedArr;
 }
-console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])); // [1,2,3
+
+console.log(capitalizeFirst(["car", "taco", "banana"])); // ['Car','Taco','Banana']
