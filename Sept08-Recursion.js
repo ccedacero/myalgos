@@ -65,18 +65,29 @@ function isPalindrome(str) {
 //   res.push(string);
 //   return res;
 // }
-
+const capitalizedArr = [];
 function capitalizeFirst(arr) {
-  const capitalizedArr = [];
   if (arr.length == 0) {
     return capitalizedArr;
   } else {
-    let word = arr[0].slice(1);
-    word = arr[0][0].toUpperCase() + word;
+    let word = arr[0][0].toUpperCase() + arr[0].slice(1);
     capitalizedArr.push(word);
     return capitalizeFirst(arr.slice(1));
   }
-  // return capitalizedArr;
+  return capitalizedArr;
 }
 
-console.log(capitalizeFirst(["car", "taco", "banana"])); // ['Car','Taco','Banana']
+// console.log(capitalizeFirst(["car", "taco", "banana"])); // ['Car','Taco','Banana']
+
+function capitalizeWords(array) {
+  if (array.length === 1) {
+    return [array[0].toUpperCase()];
+  }
+  // this makes a copy from beginning
+  // and drops the last one
+  // let res = capitalizeWords(array.slice(0, -1));
+  console.log((array.length - 1)[0]);
+}
+
+let words = ["i", "am", "learning", "recursion"];
+console.log(capitalizeWords(words)); // ['I', 'AM', 'LEARNING', 'RECURSION']
