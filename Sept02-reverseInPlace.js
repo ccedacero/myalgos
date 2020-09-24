@@ -29,8 +29,10 @@ function reverseArr(arrofChars) {
   return arrofChars;
   console.log(arrofChars);
 }
-arr = [1, 2, 3, 4, 5];
-reverseArr(arr);
+// arr = [1, 2, 3, 4, 5];
+nums1 = [1, 2, 3, 0, 0, 0];
+nums2 = [2, 5, 6];
+console.log(reverseArr(nums1.concat(nums2)));
 
 // Complexity O(n) runtime and O(1) space
 // Write a function reverseWords() that takes a message as an array of characters and reverses the order of the words in place. ↴
@@ -76,4 +78,4 @@ function reverseWords(arr) {
   return arr;
 }
 
-console.log(reverseWords(message));
+// console.log(reverseWords(message));
