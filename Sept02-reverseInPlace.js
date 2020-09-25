@@ -78,4 +78,20 @@ function reverseWords(arr) {
   return arr;
 }
 
+// Two methods to reverse a string below
+function reverseStr(str) {
+  let newStr = "";
+  for (let i = str.length - 1; i > -1; i--) {
+    newStr += str[i];
+  }
+  return newStr;
+}
+let str = "hello";
+// reverseStr('')
+
+function reverseStr2(str) {
+  str = str.split("").reverse().join("");
+  return str;
+}
+
 // console.log(reverseWords(message));
