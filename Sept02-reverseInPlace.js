@@ -60,24 +60,50 @@ const message = [
   "e",
   "a",
   "l",
-];
-function reverseWords(arr) {
-  // failsafe to check length
-  if (arr.length < 2) return arr;
-  // declare 3 vars to store leftIndex, rightIndex, tempIndex
-  let leftIndex = 0;
-  let rightIndex = arr.length - 1;
-  let temp = 0;
-  while (leftIndex < rightIndex) {
-    temp = arr[rightIndex];
-    arr[rightIndex] = arr[leftIndex];
-    arr[leftIndex] = temp;
-    leftIndex++;
-    rightIndex--;
-  }
-  return arr;
-}
+// ];
+// function reverseWords(arr) {
+//   // failsafe to check length
+//   if (arr.length < 2) return arr;
+//   function reverseWords(word,leftIndex,rightIndex) {
+//   // declare 3 vars to store leftIndex, rightIndex, tempIndex
+//   let temp = 0;
+//   while (leftIndex < rightIndex) {
+//     temp = arr[rightIndex];
+//     arr[rightIndex] = arr[leftIndex];
+//     arr[leftIndex] = temp;
+//     leftIndex++;
+//     rightIndex--;
+//    }
+//   }
+// }
+// console.log(reverseWords(message));
+// complete answer is below 
+function reverseWords(message) {
 
+  // First we reverse all the characters in the entire message
+  reverseCharacters(message, 0, message.length - 1);
+  // This gives us the right word order
+  // but with each word backward
+
+  // Now we'll make the words forward again
+  // by reversing each word's characters
+
+  // We hold the index of the *start* of the current word
+  // as we look for the *end* of the current word
+  let currentWordStartIndex = 0;
+  for (let i = 0; i <= message.length; i++) {
+
+    // Found the end of the current word!
+    if (i === message.length || message[i] === ' ') {
+
+      // If we haven't exhausted the string our
+      // next word's start is one character ahead
+      reverseCharacters(message, currentWordStartIndex, i - 1);
+      currentWordStartIndex = i + 1;
+    }
+  }
+
+reverseWords(message)
 // Two methods to reverse a string below
 function reverseStr(str) {
   let newStr = "";
