@@ -1,25 +1,29 @@
-// Compare the Triplets
+function maxHeight(wallPositions, wallHeights) {
+    let height = [];
+    let first = 0; 
+    let second = 1; 
+      while(second < wallPositions.length) {
+          let differece = wallPositions[second] - wallPositions[first];
+          console.log(differece)
+          if(differece === 2) {
+            height.push(wallHeights[first]+ 1)
+          }
+          if(differece === 3) {
+            height.push(wallHeights[first],wallHeights[second]-1)
+          }
+          //     let right = wallHeights.length-1; 
+          //     while(wallPositions[left] < wallPositions[second]) {
+          //        height.push(wallHeights[left]+wallHeights[right])
+          //        left++
+              }
 
-// Complete the compareTriplets function below.
-function compareTriplets(a, b) {
-  let aCount = 0;
-  let bCount = 0;
-  let count = 0;
-  while (count <= 3) {
-    if (a[count] > b[count]) aCount++;
-    if (b[count] > a[count]) bCount++;
-    count++;
-  }
-  return [aCount, bCount];
-}
+        first++;
+        second++;
+        console.log(height)
+      } 
+  
 
-// A very big sum
-// Complete the aVeryBigSum function below.
-function aVeryBigSum(ar) {
-  let sum = 0;
+    let wall = [1,2,4,7];
+    let wallH = [4,6,8,11];
 
-  for (let num of ar) {
-    sum += num;
-  }
-  return sum;
-}
+console.log(maxHeight(wall,wallH))
