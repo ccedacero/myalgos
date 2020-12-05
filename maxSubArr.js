@@ -28,17 +28,24 @@
 // find max sum subarray 
 
 function maxSubArrSum(arr, n) {
-    let max = null;
+    let maxSum = 0;
+    let pair = [];
     for (let i = 0; i < n; i++) {
-        max += arr[i]
+        maxSum += arr[i];
     }
-    for (let j = n; j < arr.length; j++) {
-        let tempSum = arr[j] - arr[j - n] + arr[j];
-        // console.log(arr[j]-arr[j-n]+arr[j])
-        max = Math.max(tempSum, max);
+    let tempSum = maxSum;
+    for (let i = n; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - n] + arr[i];
+        if (tempSum > maxSum) {
+            maxSum = tempSum;
+            pair = arr.slice(i - n + 1, i + 1)
+        }
     }
-    return max;
+    console.log(pair);
+    return maxSum;
 }
 
-const arr = [1, 2, 5, 2, 8, 1, 5]
-console.log(maxSubArrSum(arr, 2));
+
+
+const arr = [1, 2, 5, 2, 8, 1, 5, 100]
+console.log(maxSubArrSum(arr, 3));
